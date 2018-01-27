@@ -1,0 +1,29 @@
+{
+    "app":{
+        "sensor_read_interval_ms":5000,
+        "gpio_trigger_pin":16,
+        "gpio_echo_pin":17,
+        "pulse_in_timeout_usecs":1000000,
+        "mqtt_tank_level_topic":"home/tanklevel/1"
+    },
+    "wifi": {
+      "sta": {
+        "enable": true,
+        "ssid": "your network name",
+        "pass": "your network password"
+      }
+    },
+    "mqtt": {
+        "enable": true,
+        "server": "****.iot.ap-southeast-2.amazonaws.com:8883",        
+        "reconnect_timeout_min": 2.000000,
+        "reconnect_timeout_max": 60.000000,
+        "ssl_cert": "aws-iot-dfad3f6376.crt.pem",
+        "ssl_key": "aws-iot-dfad3f6376.key.pem",
+        "ssl_ca_cert": "ca.pem",
+        "clean_session": true,
+        "keep_alive": 60,        
+        "max_qos": 2,
+        "recv_mbuf_limit": 8192
+      }
+  }

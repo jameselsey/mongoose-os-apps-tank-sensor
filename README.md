@@ -21,7 +21,20 @@ You should see output like
 Credit to "nliviu" on Mongoose OS forums for helping me get the pulseIn working
 https://forum.mongoose-os.com/discussion/1928/arduino-compat-lib-implicit-declaration-of-function-pulsein#latest
 
+
+AWS IoT
+====
+This project will upload the sensor readings to AWS IoT.
+
+When you run `mos build && mos flash` for the first time, there will be no AWS config, run `mos ls`, you shouldn't see
+and `aws-*.pem` files, thats because I haven't committed them as they're private. You'll need to initialise by running 
+`mos aws-iot-setup`.
+
+Run `mos ls` again and you should see those AWS files on the device. Next thing you need to do is configure the device to use those keys. Run `mos call Config.Get` to see the config that the device is actually using, you can either set config using `mos config-set` or you can alter the `fs/conf9.json` file as that file will survive any OTA updates.
+
+Login to your AWS IoT console and you should see data being published!
+
+
 Next steps
 =====
-1. Start sending data to AWS IoT
-2. Figure out solar/battery solution
+1. Figure out solar/battery solution

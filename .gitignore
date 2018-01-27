@@ -1,3 +1,6 @@
 .vscode/
 build/
 deps/
+*.pem
+.DS_Store
+fs/conf9.json

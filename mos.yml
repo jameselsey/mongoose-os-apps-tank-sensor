@@ -46,6 +46,15 @@ filesystem:
 #
 config_schema:
  - ["debug.level", 3]
+ - ["device.id", "home_tank_sensor"]
+ - ["app", "o", {title: "APP settings"}]   
+ - ["app.sensor_read_interval_ms", "i", 2000, {title: "How often (in milliseconds) to check sensor reading"}]
+ - ["app.gpio_trigger_pin", "i", 16, {title: "GPIO pin for trigger interface"}]
+ - ["app.gpio_echo_pin", "i", 17, {title: "GPIO pin for echo interface"}]
+ - ["app.pulse_in_timeout_usecs", "i", 1000000, {title: "Timeout (in microseconds) for sensor read"}]
+ - ["app.mqtt_tank_level_topic", "s", "home/tanklevel/1", {title: "MQTT topic for tank level sensor reading"}]
+ 
+
 
 # build_vars:
   # MGOS_ENABLE_ARDUINO_API: 1
@@ -58,6 +67,10 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-uart
   - origin: https://github.com/mongoose-os-libs/spi
+  - origin: https://github.com/mongoose-os-libs/wifi
+  - origin: https://github.com/mongoose-os-libs/mqtt
+  - origin: https://github.com/mongoose-os-libs/aws
+  - origin: https://github.com/mongoose-os-libs/shadow
 
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
